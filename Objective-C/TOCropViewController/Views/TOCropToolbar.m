@@ -102,8 +102,8 @@
     // Get the resource bundle depending on the framework/dependency manager we're using
     NSBundle *resourceBundle = TO_CROP_VIEW_RESOURCE_BUNDLE_FOR_OBJECT(self);
 
-    if (@available(iOS 26.0, *)) {
-    } else {
+//    if (@available(iOS 26.0, *)) {
+//    } else {
         _doneTextButton = [UIButton buttonWithType:UIButtonTypeSystem];
         [_doneTextButton setTitle:_doneTextButtonTitle ? _doneTextButtonTitle : NSLocalizedStringFromTableInBundle(@"Done", @"TOCropViewControllerLocalizable", resourceBundle, nil)
                          forState:UIControlStateNormal];
@@ -116,7 +116,7 @@
         [_doneTextButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [_doneTextButton sizeToFit];
         [self addSubview:_doneTextButton];
-    }
+//    }
 
     _doneIconButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_doneIconButton setImage:[TOCropToolbar doneImage] forState:UIControlStateNormal];
@@ -138,8 +138,8 @@
     // Set the default color for the done buttons
     self.doneButtonColor = nil;
 
-    if (@available(iOS 26.0, *)) {
-    } else {
+//    if (@available(iOS 26.0, *)) {
+//    } else {
         _cancelTextButton = [UIButton buttonWithType:UIButtonTypeSystem];
 
         [_cancelTextButton setTitle:_cancelTextButtonTitle ? _cancelTextButtonTitle : NSLocalizedStringFromTableInBundle(@"Cancel", @"TOCropViewControllerLocalizable", resourceBundle, nil)
@@ -148,7 +148,7 @@
         [_cancelTextButton addTarget:self action:@selector(buttonTapped:) forControlEvents:UIControlEventTouchUpInside];
         [_cancelTextButton sizeToFit];
         [self addSubview:_cancelTextButton];
-    }
+//    }
 
     _cancelIconButton = [UIButton buttonWithType:UIButtonTypeSystem];
     [_cancelIconButton setImage:[TOCropToolbar cancelImage] forState:UIControlStateNormal];
@@ -341,30 +341,30 @@
 
     const CGFloat buttonSize = 44.0f;
 
-    if (@available(iOS 26.0, *)) {
-        CGFloat glassPadding = 6.0f;
-        CGFloat buttonPadding = 12.0f;
-        CGFloat maxExtent = buttons.count * buttonSize + (buttonPadding * (buttons.count - 1)) + (glassPadding * 2.0f);
-
-        CGRect glassFrame = CGRectZero;
-        glassFrame.size.width = horizontally ? maxExtent : buttonSize;
-        glassFrame.size.height = horizontally ? buttonSize : maxExtent;
-        glassFrame.origin.x = horizontally ? CGRectGetMidX(containerRect) - (glassFrame.size.width / 2.0f) : 0.0f;
-        glassFrame.origin.y = horizontally ? 0.0f : CGRectGetMidY(containerRect) - (glassFrame.size.height / 2.0f);
-        _glassView.frame = glassFrame;
-
-        CGFloat position = glassPadding;
-        for (UIButton *button in buttons) {
-            CGRect buttonFrame = CGRectMake(0.0, 0.0, buttonSize, buttonSize);
-            if (horizontally) {
-                buttonFrame.origin.x = position;
-            } else {
-                buttonFrame.origin.y = position;
-            }
-            button.frame = buttonFrame;
-            position += buttonSize + buttonPadding;
-        }
-    } else {
+//    if (@available(iOS 26.0, *)) {
+//        CGFloat glassPadding = 6.0f;
+//        CGFloat buttonPadding = 12.0f;
+//        CGFloat maxExtent = buttons.count * buttonSize + (buttonPadding * (buttons.count - 1)) + (glassPadding * 2.0f);
+//
+//        CGRect glassFrame = CGRectZero;
+//        glassFrame.size.width = horizontally ? maxExtent : buttonSize;
+//        glassFrame.size.height = horizontally ? buttonSize : maxExtent;
+//        glassFrame.origin.x = horizontally ? CGRectGetMidX(containerRect) - (glassFrame.size.width / 2.0f) : 0.0f;
+//        glassFrame.origin.y = horizontally ? 0.0f : CGRectGetMidY(containerRect) - (glassFrame.size.height / 2.0f);
+//        _glassView.frame = glassFrame;
+//
+//        CGFloat position = glassPadding;
+//        for (UIButton *button in buttons) {
+//            CGRect buttonFrame = CGRectMake(0.0, 0.0, buttonSize, buttonSize);
+//            if (horizontally) {
+//                buttonFrame.origin.x = position;
+//            } else {
+//                buttonFrame.origin.y = position;
+//            }
+//            button.frame = buttonFrame;
+//            position += buttonSize + buttonPadding;
+//        }
+//    } else {
         NSInteger count = buttons.count;
         CGFloat fixedSize = horizontally ? size.width : size.height;
         CGFloat maxLength = horizontally ? CGRectGetWidth(containerRect) : CGRectGetHeight(containerRect);
@@ -399,7 +399,7 @@
             }
             button.frame = (CGRect){origin, size};
         }
-    }
+//    }
 }
 
 - (void)buttonTapped:(id)button {
